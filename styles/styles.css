@@ -73,30 +73,30 @@ body {
 /* rainbow color changing stuff idfk */
 
 @keyframes rainbow-text {
-    0%   {color: #ff0000;}
-    12%  {color: #ffa500;}
-    24%  {color: #ffff00;}
-    36%  {color: #008000;}
+    0%   {color: #bd3434;}
+    12%  {color: #e79d13;}
+    24%  {color: #ffff43;}
+    36%  {color: #2a922a;}
     48%  {color: #00ffff;}
-    60%  {color: #0000ff;}
-    72%  {color: #800080;}
+    60%  {color: #4949f8;}
+    72%  {color: #791f79;}
     84%  {color: #ffc0cb;}
-    100% {color: #ff0000;}
+    100% {color: #df6c6c;}
 }
 
-.ranibow span{
-    pointer-events: all;
+.rainbow span {
     animation: rainbow-text 3s infinite;
-    display: table-cell;
+    display: inline-block;
 }
-.wave span:nth-child(1)  { animation-delay: -1600ms; }
-.wave span:nth-child(2)  { animation-delay: -1400ms; }
-.wave span:nth-child(3)  { animation-delay: -1200ms; }
-.wave span:nth-child(4)  { animation-delay: -1000ms; }
-.wave span:nth-child(5)  { animation-delay: -800ms;  }
-.wave span:nth-child(6)  { animation-delay: -600ms;  }
 
-/* click to enter */
+.rainbow span:nth-child(1) { animation-delay: -1000ms; }
+.rainbow span:nth-child(2) { animation-delay: -800ms; }
+.rainbow span:nth-child(3) { animation-delay: -600ms; }
+.rainbow span:nth-child(4) { animation-delay: -400ms; }
+.rainbow span:nth-child(5) { animation-delay: -200ms; }
+.rainbow span:nth-child(6) { animation-delay: 0ms; }
+
+/* click to enter
 
 .overlay {
     position: fixed;
@@ -126,4 +126,4 @@ body {
 .fade-out {
     opacity: 0;
     transition: opacity 0.5s ease;
-  } 
+  } */
