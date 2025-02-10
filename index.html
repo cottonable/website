@@ -37,47 +37,41 @@
       <section class="statuses"> <!--statuses-->
         <div>
           <div style="font-size: 17px;">
-            <span class="smaller-text" id="description">loading status...</span>
-            <p id="spotify-song"></p>
+            <p class="smaller-text" id="description">loading discord status...</p>
+            <p id="bdaycd"></p>
           </div>
         </div>
       </section>
 
-      <section> <!--div witd other divs-->
+      <section> <!--div with other divs-->
         <div class="div-with-divs">
           <div class="box" style="max-width: 450px;">
             <div class="text-inside">
-              <h1>about me: </h1>
-              <p>Heyo! <br>I'm <span class="rainbow"><span>c</span><span>o</span><span>t</span><span>t</span><span>o</span><span>n</span></span>, a 14y/o someone who's learning python. I was also doing some youtube stuff before but now eh, not really my thing anymore. Mainly interested in coding and games <em><a style="color: #aaaaaa;">(marvel rivals, etc.)</a></em>. Also this website is open-source on github, you can check it out <a  style="color: rgb(255, 88, 255);" href="https://github.com/cottonrip/website">here</a>!</p>
+              <h1>about me:</h1>
+              <p>Heyo! <br>
+                I'm <span class="rainbow"><span>c</span><span>o</span><span>t</span><span>t</span><span>o</span><span>n</span></span>, a 14y/o someone who's learning coding. I was also doing some youtube stuff before but now eh, not really my thing anymore.
+                <hr class="dashed">
+                Mainly interested in coding and marvel rivals.
+                <hr class="dashed">
+                This website is open-source on github, you can check it out <a style="color: rgb(255, 88, 255);" href="https://github.com/cottonable/website">here</a>!</p>
             </div>
           </div>
-            <div class="box" style="max-width: 450px;"> <!--second div-->
+            <div class="box" style="max-width: 450px; min-width: 220px;"> <!--second div-->
               <div class="text-inside">
-                <h1>where to find me: </h1>
+                <h1>links: </h1>
                 <div class="jb-mono">
-                <p><a style="color: #5865F2;" href="https://discord.gg/mgfrbZhHFJ">[discord]</a></p>
-                <p><a style="color: #1185fe;" href="https://bsky.app/profile/cotton.rip">[bsky]</a></p>
-                <p><a style="color: #A9E500;" href="https://github.com/cottonrip">[github]</a></p>
-                <p><a style="color: #FF0000;" href="https://youtube.com/@cottonrip">[youtube]</a></p>
-                <p><a style="color: #FFFFFF;" href="mailto:me@cotton.rip">[e-mail]</a></p>
+                <p><a style="color: #ffaf8a; text-decoration: none;" href="https://listenbrainz.org/user/cottonable/">[listenbrainz]</a></p>
+                <p><a style="color: #5865F2; text-decoration: none;" href="https://discord.gg/mgfrbZhHFJ">[discord]</a></p>
+                <p><a style="color: #A9E500; text-decoration: none;" href="https://github.com/cottonable">[github]</a></p>
+                <p><a style="color: #FF0000; text-decoration: none;" href="https://youtube.com/@cottonable">[youtube]</a></p>
+                <p><a style="color: #fff; text-decoration: none;" href="mailto:me@cotton.rip">[e-mail]</a></p>
+                <p><a class="dlink" href="https://coindrop.to/cotton">[coindrop]</a></p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
     </section>
-
-    <script type="module" src="/src/main.js"></script>
-    <script type="module" src="/src/snow.js"></script>
-    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-    <script>
-      kofiWidgetOverlay.draw('cottonrip', {
-        'type': 'floating-chat',
-        'floating-chat.donateButton.text': 'Support me',
-        'floating-chat.donateButton.background-color': '#323842',
-        'floating-chat.donateButton.text-color': '#fff'
-      });
-    </script>
+    <script type="module" src="/scripts/main.js"></script>
   </body>
 </html>

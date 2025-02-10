@@ -70,18 +70,41 @@ body {
     display: flex;
 }
 
+@media screen and (max-width: 800px) {
+  .div-with-divs {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .box {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+.dlink {
+    color: #fff45b;
+    text-decoration: none;
+    opacity: 0.2;
+    transition: opacity 0.2s ease;
+}
+
+.dlink:hover {
+    opacity: 1;
+}
+
 /* rainbow color changing stuff idfk */
 
 @keyframes rainbow-text {
-    0%   {color: #bd3434;}
-    12%  {color: #e79d13;}
-    24%  {color: #ffff43;}
-    36%  {color: #2a922a;}
+    0%   {color: #ff3366;}
+    12%  {color: #ff6b3d;}
+    24%  {color: #fff950;}
+    36%  {color: #4efd54;}
     48%  {color: #00ffff;}
-    60%  {color: #4949f8;}
-    72%  {color: #791f79;}
-    84%  {color: #ffc0cb;}
-    100% {color: #df6c6c;}
+    60%  {color: #6666ff;}
+    72%  {color: #b266ff;}
+    84%  {color: #ff69b4;}
+    100% {color: #ff3366;}
 }
 
 .rainbow span {
@@ -95,6 +118,12 @@ body {
 .rainbow span:nth-child(4) { animation-delay: -400ms; }
 .rainbow span:nth-child(5) { animation-delay: -200ms; }
 .rainbow span:nth-child(6) { animation-delay: 0ms; }
+
+hr.dashed {
+    border: none;
+    border-top: 3px dashed #525252;
+    width: 95%;
+}
 
 /* click to enter
 
