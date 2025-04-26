@@ -48,7 +48,7 @@ html, body {
       -1px 1px 0 var(--color-black),
        1px 1px 0 var(--color-black),
        4px 4px 0 rgba(0, 0, 0, 0.2);
-    animation: rainbow 1.5s ease-in-out infinite;
+    animation: rainbow 1.8s ease-in-out infinite;
 
     @for $i from 1 through 7 {
       &:nth-child(#{$i}) {
@@ -89,5 +89,5 @@ $bg-height: 50px;
 
 body {
   background: url($bg-url) repeat 0 0;
-  animation: bg-scrolling-reverse 1.40s linear infinite;
+  animation: bg-scrolling-reverse 3.5s linear infinite;
 }

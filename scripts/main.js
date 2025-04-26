@@ -85,23 +85,30 @@ function setupBasicInfo({ discord_user, discord_status, activities }) {
 window.addEventListener('resize', setOverflow);
 setOverflow();
 
-function bdayCountdown() {
-  const targetDate = new Date(2025, 2, 22);
+function timeCountdown() {
+  const targetDate = new Date(2025, 5, 27);
   const currentDate = new Date();
   const diffTime = targetDate - currentDate;
   const left = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   
-  const descriptionElement = document.getElementById('bdaycd');
+  const descriptionElement = document.getElementById('timecd');
   if (left > 0) {
-      descriptionElement.textContent = `${left} days till bday`;
+      descriptionElement.textContent = `${left} days till vacation`;
   } else if (left === 0) {
-      descriptionElement.textContent = "my bday is today :D 🎉";
+      descriptionElement.textContent = "vacation started 🎉";
   } else {
-      descriptionElement.textContent = "update the date u moron";
+      descriptionElement.textContent = "vacation started 🎉";
   }
 }
-bdayCountdown();
-setInterval(bdayCountdown, 86400000);
+timeCountdown();
+setInterval(timeCountdown, 86400000);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.getElementById('discord-button');
+  button.addEventListener('click', () => {
+    button.textContent = '[@cottonable]';
+  });
+});
 
 // click to enter
 
