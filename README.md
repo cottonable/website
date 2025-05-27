@@ -1,6 +1,5 @@
 
 # ✨website✨
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 ## Building
 
 To build the website from source, you will need to have [pnpm](https://pnpm.io/installation) and [vite](https://vite.io) installed.
