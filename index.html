@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,182 +13,213 @@
     <link rel="manifest" href="./favicon/site.webmanifest">
     <link rel="icon" type="image/png" href="./assets/favicon.png" sizes="32x32">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
+
         @import url('https://rsms.me/inter/inter.css');
     </style>
 </head>
+
 <body class="bg-slate-900 text-slate-300">
 
-    <!-- ===== Socials Notch Header ===== -->
-    <header class="sticky top-0 z-50 flex justify-center">
-        <div class="bg-slate-900/80 backdrop-blur-sm rounded-b-xl px-6 py-2 border-x border-b border-slate-800 shadow-lg">
-            <nav class="flex items-center space-x-5 text-slate-400">
-                <a href="https://www.tiktok.com/@cottonable_" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="TikTok">
-                    <i class="fa-brands fa-tiktok text-xl"></i>
-                </a>
-                <a href="https://discord.gg/KB87uK9uTC" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="Discord">
-                    <i class="fa-brands fa-discord text-xl"></i>
-                </a>
-                <a href="https://github.com/cottonable" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="X">
-                    <i class="fa-brands fa-github text-xl"></i>
-                </a>
-                <a href="https://listenbrainz.org/user/cottonable/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="ListenBrainz">
-                    <i class="fa-solid fa-music text-xl"></i>
-                </a>
-                <a href="mailto:me@cotton.rip" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="ListenBrainz">
-                    <i class="fa-solid fa-envelope text-xl"></i>
-                </a>
-            </nav>
-        </div>
-    </header>
-
     <main>
+        <div class="left-box flex flex-col items-center justify-center p-8 text-center">
 
-        <!-- ===== Hero & About Section ===== -->
-        <section id="home" class="min-h-screen flex items-center">
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-                
-                <!-- pfp -->
-                <div class="order-1 md:order-2">
-                    <img src="./assets/pfp.jpg" alt="pfp" class="rounded-full mx-auto w-64 h-64 md:w-80 md:h-80 object-cover shadow-2xl border-4 border-slate-800">
+            <!-- pfp -->
+            <div class="flex justify-center mb-2">
+                <div class="relative w-40 h-40 rounded-full overflow-hidden border-2 border-slate-700 shadow-lg">
+                    <img src="./assets/pfp.jpg" alt="pfp" class="absolute inset-0 w-full h-full object-cover">
                 </div>
-
-                <!-- bio and stuff -->
-                <div class="order-2 md:order-1 text-lg text-slate-400 space-y-6 text-center md:text-left">
-                    <h1 class="text-4xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
-                        Hello, I'm <br><span id="hacker-text" class="text-sky-400 font-mono" data-value="cottonable">cottonable</span>.
-                    </h1>
-                    <p class="text-xl px-4 md:px-0">
-                        A bored teenager with a passion for coding. Also a terrible <a href="https://tracker.gg/valorant/profile/riot/cotton%23able" class="text-sky-400 hover:underline">VALORANT</a> player.
-                    </p>
-                    <div>
-                        <h4 class="text-xl font-bold text-white mb-3">I know a bit of:</h4>
-                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                            <span class="bg-sky-900/50 text-sky-300 text-sm font-medium px-3 py-1 rounded-full">Go</span>
-                             <span class="bg-sky-900/50 text-sky-300 text-sm font-medium px-3 py-1 rounded-full">Illustrator</span>
-                            <span class="bg-sky-900/50 text-sky-300 text-sm font-medium px-3 py-1 rounded-full">Video Editing</span>
-                        </div>
-
             </div>
-        </section>
 
-        <!-- ===== Tilted Software Showcase Section ===== -->
-        <div class="relative pt-12 md:pt-20 md:-mt-16">
-            <!-- Tilted Background -->
-            <div class="absolute inset-0 transform bg-stone-950"></div>
-
-            <section id="software" class="relative pb-12">
-                <div class="container mx-auto px-6 md:px-12">
-                    <div class="text-left">
-                        <h2 class="text-4xl md:text-5xl font-bold text-white">My Projects</h2>
-                        <p class="text-lg text-slate-400 mt-2">A list of things I made</p>
+            <!-- bio and stuff -->
+            <div class="text-md text-slate-400 space-y-2">
+                <h1 class="text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
+                    <span id="hacker-text" class="text-sky-400 font-mono inline-block mt-1"
+                        data-value="cottonable">cottonable</span>
+                </h1>
+                <div class="mt-4">
+                    <h4 class="text-lg font-bold text-white mb-2">Stuff I do:</h4>
+                    <div class="flex flex-wrap gap-1 justify-center">
+                        <span
+                            class="bg-sky-900/50 text-sky-300 text-xs font-medium px-2 py-1 rounded-full inline-flex items-center">Video
+                            Editing</span>
+                        <span
+                            class="bg-sky-900/50 text-sky-300 text-xs font-medium px-2 py-1 rounded-full inline-flex items-center">
+                            VALORANT <span class="text-white">&nbsp;//&nbsp;</span> <a
+                                href="https://tracker.gg/valorant/profile/riot/cotton%23sigma" target="_blank"
+                                rel="noopener noreferrer" class="hover:underline underline">Tracker</a>
+                        </span>
+                        <span
+                            class="bg-sky-900/50 text-sky-300 text-xs font-medium px-2 py-1 rounded-full inline-flex items-center">Project
+                            SEKAI</span>
                     </div>
-
-                <!-- Project List -->
-                <div class="max-w-4xl mx-auto">
-                    <div class="divide-y divide-slate-800">
-
-                        <!-- Project Item 1 -->
-                        <button onclick="openColorPickerDialog()" class="block group py-8 w-full text-left">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 mr-6">
-                                    <img src="./assets/cp.png" alt="Project Icon" class="w-14 h-14 transition-transform duration-300 group-hover:-translate-y-1">
-                                </div>
-                                <div class="flex-grow">
-                                    <h3 class="font-bold text-xl text-white group-hover:text-sky-400 transition-colors duration-300">Color Picker</h3>
-                                    <p class="text-slate-400 text-base mt-2">
-                                        A very easy to use color picker that allows you to select colors from your screen and copy them to your clipboard.
-                                    </p>
-                                </div>
-                                <div class="flex-shrink-0 ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                </div>
-                            </div>
-                        </button>
-
-                        <!-- Project Item 2 -->
-                        <a href="https://cotton.rip/software/spiketimer" target="_blank" class="block group py-8">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 mr-6">
-                                    <img src="./assets/st.png" alt="Project Icon" class="w-14 h-14 transition-transform duration-300 group-hover:-translate-y-1">
-                                </div>
-                                <div class="flex-grow">
-                                    <h3 class="font-bold text-xl text-white group-hover:text-sky-400 transition-colors duration-300">Spike Timer</h3>
-                                    <p class="text-slate-400 text-base mt-2">
-                                        This program monitors your screen for the spike icon, and starts the timer to help you manage time during a clutch.
-                                    </p>
-                                </div>
-                                <div class="flex-shrink-0 ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- Project Item 3 -->
-                        <a href="https://marketplace.visualstudio.com/items?itemName=cottonable.perplexity" target="_blank" class="block group py-8">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 mr-6">
-                                    <img src="./assets/pvscode.png" alt="Project Icon" class="w-14 h-14 transition-transform duration-300 group-hover:-translate-y-1">
-                                </div>
-                                <div class="flex-grow">
-                                    <h3 class="font-bold text-xl text-white group-hover:text-sky-400 transition-colors duration-300">Perplexity Theme for VSCode</h3>
-                                    <p class="text-slate-400 text-base mt-2">
-                                        A dark theme for Visual Studio Code using Perplexity AI colors.
-                                    </p>
-                                </div>
-                                <div class="flex-shrink-0 ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                    <!-- View All Projects Button -->
-<!--                    <div class="text-center mt-12">
-                        <a href="https://cotton.rip/software" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 inline-block invisible">
-                            Show all projects ->
-                        </a>
-                    </div>-->
                 </div>
-                </div>
-            </section>
+            </div>
         </div>
 
-        <!-- Color Picker Download Dialog -->
-        <div id="colorPickerDialog" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-            <div class="bg-slate-800 rounded-lg p-8 max-w-md w-full mx-4 border border-slate-700">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-2xl font-bold text-white">Download Color Picker</h3>
-                    <button onclick="closeColorPickerDialog()" class="text-slate-400 hover:text-white transition-colors">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
+        <div class="right-box p-8">
+            <h2 class="text-3xl font-bold text-white mb-2">My Projects</h2>
+            <p class="text-md text-slate-400 mb-6">A list of things I made</p>
+
+            <div class="grid grid-cols-1 gap-4">
+
+                <!-- Project Item 1 -->
+                <button onclick="openColorPickerDialog()"
+                    class="group w-full text-left bg-slate-800 rounded-lg p-3 hover:bg-slate-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg flex items-center">
+                    <div class="flex-shrink-0 mr-3">
+                        <img src="./assets/cp.png" alt="Project Icon"
+                            class="w-10 h-10 transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="flex-grow">
+                        <h3
+                            class="font-bold text-base text-white group-hover:text-sky-400 transition-colors duration-300">
+                            Color Picker</h3>
+                        <p class="text-slate-400 text-xs mt-0.5">
+                            A very easy to use color picker.
+                        </p>
+                    </div>
+                </button>
+
+                <!-- Project Item 2 -->
+                <a href="https://cotton.rip/software/spiketimer" target="_blank"
+                    class="group w-full text-left bg-slate-800 rounded-lg p-3 hover:bg-slate-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg flex items-center">
+                    <div class="flex-shrink-0 mr-3">
+                        <img src="./assets/st.png" alt="Project Icon"
+                            class="w-10 h-10 transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="flex-grow">
+                        <h3
+                            class="font-bold text-base text-white group-hover:text-sky-400 transition-colors duration-300">
+                            Spike Timer</h3>
+                        <p class="text-slate-400 text-xs mt-0.5">
+                            Monitors screen for spike icon and starts timer.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Project Item 3 -->
+                <a href="https://marketplace.visualstudio.com/items?itemName=cottonable.perplexity" target="_blank"
+                    class="group w-full text-left bg-slate-800 rounded-lg p-3 hover:bg-slate-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg flex items-center">
+                    <div class="flex-shrink-0 mr-3">
+                        <img src="./assets/pvscode.png" alt="Project Icon"
+                            class="w-10 h-10 transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="flex-grow">
+                        <h3
+                            class="font-bold text-base text-white group-hover:text-sky-400 transition-colors duration-300">
+                            Perplexity Theme for VSCode</h3>
+                        <p class="text-slate-400 text-xs mt-0.5">
+                            Dark theme for VSCode using Perplexity AI colors.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Recommended Stuff Section -->
+            <div class="mt-8">
+                <h2 class="text-3xl font-bold text-white mb-2">Recommended Stuff</h2>
                 <div class="space-y-4">
-                    <button onclick="downloadColorPickerSetup()" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-download"></i>
-                        <span>Setup v1.0.0 Download</span>
-                    </button>
-                    <button onclick="downloadColorPickerPortable()" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-download"></i>
-                        <span>Portable v1.0.0 Download</span>
-                    </button>
+                    <a href="https://www.fmhy.net/" target="_blank" rel="noopener noreferrer"
+                        class="group w-full text-left bg-slate-800 rounded-lg p-3 hover:bg-slate-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg flex items-center">
+                        <div class="flex-shrink-0 mr-3">
+                            <!-- Placeholder for icon if needed -->
+                            <div
+                                class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center text-slate-400 text-xl">
+                                <i class="fa-solid fa-link"></i>
+                            </div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3
+                                class="font-bold text-base text-white group-hover:text-sky-400 transition-colors duration-300">
+                                FMHY</h3>
+                        </div>
+                    </a>
+                    <a href="https://cobalt.tools/" target="_blank" rel="noopener noreferrer"
+                        class="group w-full text-left bg-slate-800 rounded-lg p-3 hover:bg-slate-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg flex items-center">
+                        <div class="flex-shrink-0 mr-3">
+                            <!-- Placeholder for icon if needed -->
+                            <div
+                                class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center text-slate-400 text-xl">
+                                <i class="fa-solid fa-link"></i>
+                            </div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3
+                                class="font-bold text-base text-white group-hover:text-sky-400 transition-colors duration-300">
+                                Cobalt.tools</h3>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-
-        <!-- footer to cover up the bg color -->
-        <footer class="bg-stone-950 border-t border-slate-800 py-8 -mt-7">
-            <div class="container mx-auto px-6 text-center text-slate-400">
-            </div>
-        </footer>
     </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-stone-950 border-t border-slate-800 py-4 text-center">
+        <nav class="flex items-center space-x-4 text-slate-400 text-lg justify-center">
+            <a href="https://www.tiktok.com/@cottonable_" target="_blank" rel="noopener noreferrer"
+                class="hover:text-white transition-colors flex items-center space-x-2" aria-label="TikTok">
+                <i class="fa-brands fa-tiktok text-xl"></i>
+                <span class="text-sm">TikTok</span>
+            </a>
+            <a href="https://discord.gg/KB87uK9uTC" target="_blank" rel="noopener noreferrer"
+                class="hover:text-white transition-colors flex items-center space-x-2" aria-label="Discord">
+                <i class="fa-brands fa-discord text-xl"></i>
+                <span class="text-sm">Discord</span>
+            </a>
+            <a href="https://github.com/cottonable" target="_blank" rel="noopener noreferrer"
+                class="hover:text-white transition-colors flex items-center space-x-2" aria-label="X">
+                <i class="fa-brands fa-github text-xl"></i>
+                <span class="text-sm">GitHub</span>
+            </a>
+            <a href="https://listenbrainz.org/user/cottonable/" target="_blank" rel="noopener noreferrer"
+                class="hover:text-white transition-colors flex items-center space-x-2" aria-label="ListenBrainz">
+                <i class="fa-solid fa-music text-xl"></i>
+                <span class="text-sm">ListenBrainz</span>
+            </a>
+            <a href="mailto:me@cotton.rip" target="_blank" rel="noopener noreferrer"
+                class="hover:text-white transition-colors flex items-center space-x-2" aria-label="Email">
+                <i class="fa-solid fa-envelope text-xl"></i>
+                <span class="text-sm">Email</span>
+            </a>
+        </nav>
+    </footer>
+
+    <!-- Color Picker Download Dialog -->
+    <div id="colorPickerDialog"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-slate-800 rounded-lg p-8 max-w-md w-full mx-4 border border-slate-700">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-white">Download Color Picker</h3>
+                <button onclick="closeColorPickerDialog()" class="text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <button onclick="downloadColorPickerSetup()"
+                    class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Setup v1.0.0 Download</span>
+                </button>
+                <button onclick="downloadColorPickerPortable()"
+                    class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Portable v1.0.0 Download</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -238,13 +270,11 @@
         }
 
         function downloadColorPickerSetup() {
-            // Replace with actual setup download link
             window.open('https://mega.nz/file/NAhnRS4J#5ln6cIGAdCkMw3owVJWpvqA-fkGBJtGeoI7t8-3j7Do', '_blank');
             closeColorPickerDialog();
         }
 
         function downloadColorPickerPortable() {
-            // Replace with actual portable download link
             window.open('https://mega.nz/file/dchXCRDC#dKcA2yT7C6aggaQ0-sr3CPb-LMAVFu1J0xSvlzNS4wk', '_blank');
             closeColorPickerDialog();
         }
@@ -265,4 +295,5 @@
         });
     </script>
 </body>
+
 </html>
