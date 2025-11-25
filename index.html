@@ -21,13 +21,157 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            padding-bottom: 60px;
+            position: relative;
+            overflow-x: hidden;
         }
 
         @import url('https://rsms.me/inter/inter.css');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Darker animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg,
+                    #020617,
+                    #0c1220,
+                    #0a1628,
+                    #0c1220,
+                    #020617);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -2;
+        }
+
+        /* More floating particles */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 20% 30%, rgba(56, 189, 248, 0.4), transparent),
+                radial-gradient(3px 3px at 60% 70%, rgba(56, 189, 248, 0.3), transparent),
+                radial-gradient(1px 1px at 50% 50%, rgba(56, 189, 248, 0.4), transparent),
+                radial-gradient(2px 2px at 80% 10%, rgba(56, 189, 248, 0.3), transparent),
+                radial-gradient(3px 3px at 90% 60%, rgba(56, 189, 248, 0.35), transparent),
+                radial-gradient(1px 1px at 33% 80%, rgba(56, 189, 248, 0.3), transparent),
+                radial-gradient(2px 2px at 15% 90%, rgba(56, 189, 248, 0.4), transparent),
+                radial-gradient(1px 1px at 70% 20%, rgba(56, 189, 248, 0.3), transparent),
+                radial-gradient(2px 2px at 40% 40%, rgba(56, 189, 248, 0.35), transparent),
+                radial-gradient(1px 1px at 85% 85%, rgba(56, 189, 248, 0.3), transparent),
+                radial-gradient(3px 3px at 25% 60%, rgba(56, 189, 248, 0.4), transparent),
+                radial-gradient(2px 2px at 55% 15%, rgba(56, 189, 248, 0.3), transparent),
+                radial-gradient(1px 1px at 10% 45%, rgba(56, 189, 248, 0.35), transparent),
+                radial-gradient(2px 2px at 95% 35%, rgba(56, 189, 248, 0.3), transparent),
+                radial-gradient(1px 1px at 45% 95%, rgba(56, 189, 248, 0.4), transparent);
+            background-size: 200% 200%;
+            animation: particleFloat 20s ease-in-out infinite;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes particleFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            33% {
+                transform: translate(30px, -30px);
+            }
+
+            66% {
+                transform: translate(-20px, 20px);
+            }
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+        }
+
+        /* Enhanced glassmorphism with backdrop-filter */
+        .glass {
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E"),
+                linear-gradient(to bottom right, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.6));
+        }
+
+        #mouse-glow {
+            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                    rgba(56, 189, 248, 0.15),
+                    transparent 40%);
+            z-index: -1;
+        }
+
+        /* Cursor spotlight effect */
+        .group {
+            position: relative;
+        }
+
+        .group::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                    rgba(56, 189, 248, 0.15),
+                    transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .group:hover::before {
+            opacity: 1;
+        }
+
+        .group>* {
+            position: relative;
+            z-index: 2;
+        }
     </style>
 </head>
 
-<body class="bg-slate-900 text-slate-300">
+<body class="text-slate-300">
+    <div id="mouse-glow" class="fixed inset-0 pointer-events-none transition-opacity duration-700 opacity-0"></div>
 
     <main>
         <div class="left-box flex flex-col items-center justify-center p-8 text-center">
@@ -62,6 +206,68 @@
                             SEKAI</span>
                     </div>
                 </div>
+
+                <!-- Now Playing Widget -->
+                <div id="now-playing-widget" class="mt-8 hidden group text-left max-w-sm mx-auto">
+                    <div
+                        class="glass relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 p-4 border border-white/5 shadow-xl transition-all duration-300 hover:border-white/10 hover:shadow-2xl hover:shadow-sky-900/20">
+
+                        <!-- Background Glow Effect -->
+                        <div
+                            class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-sky-500/10 blur-3xl transition-all duration-500 group-hover:bg-sky-500/20">
+                        </div>
+
+                        <div class="relative flex items-center space-x-4">
+                            <!-- Album Art -->
+                            <div id="album-art-container" class="flex-shrink-0">
+                                <a id="album-art-link" href="#" target="_blank" rel="noopener noreferrer" class="block">
+                                    <div
+                                        class="relative h-16 w-16 overflow-hidden rounded-lg shadow-lg ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-105 cursor-pointer">
+                                        <!-- Loading Spinner -->
+                                        <div id="album-art-loading"
+                                            class="flex h-full w-full items-center justify-center bg-slate-800 text-slate-600 hidden">
+                                            <i class="fa-solid fa-spinner fa-spin text-2xl"></i>
+                                        </div>
+                                        <!-- Album Art -->
+                                        <img id="album-art" src="" alt="Album Art"
+                                            class="h-full w-full object-cover hidden transition-opacity duration-500">
+                                        <!-- Placeholder -->
+                                        <div id="album-art-placeholder"
+                                            class="flex h-full w-full items-center justify-center bg-slate-800 text-slate-600">
+                                            <i class="fa-solid fa-music text-2xl"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- Track Info -->
+                            <div class="flex-grow min-w-0">
+                                <div class="mb-1 flex items-center space-x-2">
+                                    <div class="relative flex h-2 w-2">
+                                        <span id="playing-indicator-ping"
+                                            class="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75 hidden"></span>
+                                        <span id="playing-indicator"
+                                            class="relative inline-flex h-2 w-2 rounded-full bg-slate-500 transition-colors duration-300"></span>
+                                    </div>
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-wider text-slate-400 transition-colors duration-300 group-hover:text-sky-400"
+                                        id="playing-status">Last Played</span>
+                                </div>
+
+                                <h4 class="truncate text-base font-bold text-white group-hover:text-sky-100 transition-colors duration-300"
+                                    id="track-name">Loading...</h4>
+                                <p class="truncate text-sm font-medium text-slate-400 group-hover:text-slate-300 transition-colors duration-300"
+                                    id="artist-name">—</p>
+                            </div>
+
+                            <!-- Icon -->
+                            <div
+                                class="flex-shrink-0 text-slate-600 transition-colors duration-300 group-hover:text-sky-500/50">
+                                <i class="fa-brands fa-spotify text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -69,126 +275,131 @@
             <h2 class="text-3xl font-bold text-white mb-2">My Projects</h2>
             <p class="text-md text-slate-400 mb-6">A list of things I made</p>
 
-            <div class="grid grid-cols-1 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
                 <!-- Project Item 1 -->
                 <button onclick="openColorPickerDialog()"
-                    class="group w-full text-left bg-slate-800 rounded-lg p-3 hover:bg-slate-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg flex items-center">
-                    <div class="flex-shrink-0 mr-3">
-                        <img src="./assets/cp.png" alt="Project Icon"
-                            class="w-10 h-10 transition-transform duration-300 group-hover:scale-105">
+                    class="glass group relative overflow-hidden w-full text-left rounded-xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 p-4 border border-white/5 shadow-xl transition-all duration-300 hover:border-white/10 hover:shadow-2xl hover:shadow-sky-900/20 flex items-center">
+                    <!-- Background Glow -->
+                    <div
+                        class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-sky-500/10 blur-3xl transition-all duration-500 group-hover:bg-sky-500/20">
                     </div>
-                    <div class="flex-grow">
-                        <h3
-                            class="font-bold text-base text-white group-hover:text-sky-400 transition-colors duration-300">
-                            Color Picker</h3>
-                        <p class="text-slate-400 text-xs mt-0.5">
-                            A very easy to use color picker.
-                        </p>
+
+                    <div class="relative flex items-center w-full">
+                        <div class="flex-shrink-0 mr-4">
+                            <div
+                                class="w-12 h-12 rounded-lg overflow-hidden ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-105">
+                                <img src="./assets/cp.png" alt="Project Icon" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3
+                                class="font-bold text-base text-white group-hover:text-sky-100 transition-colors duration-300">
+                                Color Picker</h3>
+                            <p
+                                class="text-slate-400 text-sm mt-0.5 group-hover:text-slate-300 transition-colors duration-300">
+                                A very easy to use color picker.
+                            </p>
+                        </div>
+                        <div
+                            class="flex-shrink-0 text-slate-600 transition-colors duration-300 group-hover:text-sky-500/50 ml-4">
+                            <i class="fa-solid fa-arrow-right text-lg"></i>
+                        </div>
                     </div>
                 </button>
 
                 <!-- Project Item 2 -->
                 <a href="https://cotton.rip/software/spiketimer" target="_blank"
-                    class="group w-full text-left bg-slate-800 rounded-lg p-3 hover:bg-slate-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg flex items-center">
-                    <div class="flex-shrink-0 mr-3">
-                        <img src="./assets/st.png" alt="Project Icon"
-                            class="w-10 h-10 transition-transform duration-300 group-hover:scale-105">
+                    class="glass group relative overflow-hidden w-full text-left rounded-xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 p-4 border border-white/5 shadow-xl transition-all duration-300 hover:border-white/10 hover:shadow-2xl hover:shadow-sky-900/20 flex items-center">
+                    <!-- Background Glow -->
+                    <div
+                        class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-sky-500/10 blur-3xl transition-all duration-500 group-hover:bg-sky-500/20">
                     </div>
-                    <div class="flex-grow">
-                        <h3
-                            class="font-bold text-base text-white group-hover:text-sky-400 transition-colors duration-300">
-                            Spike Timer</h3>
-                        <p class="text-slate-400 text-xs mt-0.5">
-                            Monitors screen for spike icon and starts timer.
-                        </p>
+
+                    <div class="relative flex items-center w-full">
+                        <div class="flex-shrink-0 mr-4">
+                            <div
+                                class="w-12 h-12 rounded-lg overflow-hidden ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-105">
+                                <img src="./assets/st.png" alt="Project Icon" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3
+                                class="font-bold text-base text-white group-hover:text-sky-100 transition-colors duration-300">
+                                Spike Timer</h3>
+                            <p
+                                class="text-slate-400 text-sm mt-0.5 group-hover:text-slate-300 transition-colors duration-300">
+                                Monitors screen for spike icon and starts timer.
+                            </p>
+                        </div>
+                        <div
+                            class="flex-shrink-0 text-slate-600 transition-colors duration-300 group-hover:text-sky-500/50 ml-4">
+                            <i class="fa-solid fa-arrow-right text-lg"></i>
+                        </div>
                     </div>
                 </a>
 
                 <!-- Project Item 3 -->
                 <a href="https://marketplace.visualstudio.com/items?itemName=cottonable.perplexity" target="_blank"
-                    class="group w-full text-left bg-slate-800 rounded-lg p-3 hover:bg-slate-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg flex items-center">
-                    <div class="flex-shrink-0 mr-3">
-                        <img src="./assets/pvscode.png" alt="Project Icon"
-                            class="w-10 h-10 transition-transform duration-300 group-hover:scale-105">
+                    class="glass group relative overflow-hidden w-full text-left rounded-xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 p-4 border border-white/5 shadow-xl transition-all duration-300 hover:border-white/10 hover:shadow-2xl hover:shadow-sky-900/20 flex items-center">
+                    <!-- Background Glow -->
+                    <div
+                        class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-sky-500/10 blur-3xl transition-all duration-500 group-hover:bg-sky-500/20">
                     </div>
-                    <div class="flex-grow">
-                        <h3
-                            class="font-bold text-base text-white group-hover:text-sky-400 transition-colors duration-300">
-                            Perplexity Theme for VSCode</h3>
-                        <p class="text-slate-400 text-xs mt-0.5">
-                            Dark theme for VSCode using Perplexity AI colors.
-                        </p>
+
+                    <div class="relative flex items-center w-full">
+                        <div class="flex-shrink-0 mr-4">
+                            <div
+                                class="w-12 h-12 rounded-lg overflow-hidden ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-105">
+                                <img src="./assets/pvscode.png" alt="Project Icon" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3
+                                class="font-bold text-base text-white group-hover:text-sky-100 transition-colors duration-300">
+                                Perplexity Theme for VSCode</h3>
+                            <p
+                                class="text-slate-400 text-sm mt-0.5 group-hover:text-slate-300 transition-colors duration-300">
+                                Dark theme for VSCode using Perplexity AI colors.
+                            </p>
+                        </div>
+                        <div
+                            class="flex-shrink-0 text-slate-600 transition-colors duration-300 group-hover:text-sky-500/50 ml-4">
+                            <i class="fa-solid fa-arrow-right text-lg"></i>
+                        </div>
                     </div>
                 </a>
-            </div>
-
-            <!-- Recommended Stuff Section -->
-            <div class="mt-8">
-                <h2 class="text-3xl font-bold text-white mb-2">Recommended Stuff</h2>
-                <div class="space-y-4">
-                    <a href="https://www.fmhy.net/" target="_blank" rel="noopener noreferrer"
-                        class="group w-full text-left bg-slate-800 rounded-lg p-3 hover:bg-slate-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg flex items-center">
-                        <div class="flex-shrink-0 mr-3">
-                            <!-- Placeholder for icon if needed -->
-                            <div
-                                class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center text-slate-400 text-xl">
-                                <i class="fa-solid fa-link"></i>
-                            </div>
-                        </div>
-                        <div class="flex-grow">
-                            <h3
-                                class="font-bold text-base text-white group-hover:text-sky-400 transition-colors duration-300">
-                                FMHY</h3>
-                        </div>
-                    </a>
-                    <a href="https://cobalt.tools/" target="_blank" rel="noopener noreferrer"
-                        class="group w-full text-left bg-slate-800 rounded-lg p-3 hover:bg-slate-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg flex items-center">
-                        <div class="flex-shrink-0 mr-3">
-                            <!-- Placeholder for icon if needed -->
-                            <div
-                                class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center text-slate-400 text-xl">
-                                <i class="fa-solid fa-link"></i>
-                            </div>
-                        </div>
-                        <div class="flex-grow">
-                            <h3
-                                class="font-bold text-base text-white group-hover:text-sky-400 transition-colors duration-300">
-                                Cobalt.tools</h3>
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
     </main>
 
-    <!-- Global Footer -->
+    <!-- Footer (always sticky at bottom) -->
     <footer class="bg-stone-950 border-t border-slate-800 py-4 text-center">
         <nav class="flex items-center space-x-4 text-slate-400 text-lg justify-center">
             <a href="https://www.tiktok.com/@cottonable_" target="_blank" rel="noopener noreferrer"
                 class="hover:text-white transition-colors flex items-center space-x-2" aria-label="TikTok">
                 <i class="fa-brands fa-tiktok text-xl"></i>
-                <span class="text-sm">TikTok</span>
+                <span class="text-sm hidden md:inline">TikTok</span>
             </a>
             <a href="https://discord.gg/KB87uK9uTC" target="_blank" rel="noopener noreferrer"
                 class="hover:text-white transition-colors flex items-center space-x-2" aria-label="Discord">
                 <i class="fa-brands fa-discord text-xl"></i>
-                <span class="text-sm">Discord</span>
+                <span class="text-sm hidden md:inline">Discord</span>
             </a>
             <a href="https://github.com/cottonable" target="_blank" rel="noopener noreferrer"
                 class="hover:text-white transition-colors flex items-center space-x-2" aria-label="X">
                 <i class="fa-brands fa-github text-xl"></i>
-                <span class="text-sm">GitHub</span>
+                <span class="text-sm hidden md:inline">GitHub</span>
             </a>
             <a href="https://listenbrainz.org/user/cottonable/" target="_blank" rel="noopener noreferrer"
                 class="hover:text-white transition-colors flex items-center space-x-2" aria-label="ListenBrainz">
                 <i class="fa-solid fa-music text-xl"></i>
-                <span class="text-sm">ListenBrainz</span>
+                <span class="text-sm hidden md:inline">ListenBrainz</span>
             </a>
             <a href="mailto:me@cotton.rip" target="_blank" rel="noopener noreferrer"
                 class="hover:text-white transition-colors flex items-center space-x-2" aria-label="Email">
                 <i class="fa-solid fa-envelope text-xl"></i>
-                <span class="text-sm">Email</span>
+                <span class="text-sm hidden md:inline">Email</span>
             </a>
         </nav>
     </footer>
@@ -221,6 +432,7 @@
         </div>
     </div>
 
+    <script src="listenbrainz.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const hackerTextElement = document.getElementById('hacker-text');
@@ -291,6 +503,30 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeColorPickerDialog();
+            }
+        });
+
+        // Cursor spotlight effect for glassmorphism cards
+        const cards = document.querySelectorAll('.group');
+
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Global mouse tracking for background glow
+        const mouseGlow = document.getElementById('mouse-glow');
+        document.addEventListener('mousemove', (e) => {
+            if (mouseGlow) {
+                mouseGlow.style.opacity = '1';
+                mouseGlow.style.setProperty('--mouse-x', `${e.clientX}px`);
+                mouseGlow.style.setProperty('--mouse-y', `${e.clientY}px`);
             }
         });
     </script>
